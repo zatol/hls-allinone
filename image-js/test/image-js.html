@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="https://www.lactame.com/lib/image-js/0.21.2/image.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      id="color"
+      src="http://192.168.137.133:3395/uploads/20201201/10e73f7266b47b55.png"
+    />
+    <img id="result" />
+
+    <script>
+      async function process() {
+        let image = await IJS.Image.load(document.getElementById('color').src);
+
+        let grey = image.grey();
+
+        document.getElementById('result').src = grey.toDataURL();
+      }
+      process();
+    </script>
+  </body>
+</html>

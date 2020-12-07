@@ -1,0 +1,13 @@
+lib
+/node_modules/
+.idea
+*.log
+test/TMP
+test/browser/Image.js
+test/browser/image.js
+.DS_Store
+coverage
+.eslintcache
+.vscode
+/dist/
+package-lock.json

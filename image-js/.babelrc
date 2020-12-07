@@ -1,0 +1,38 @@
+{
+  "env": {
+    "test": {
+      "plugins": ["@babel/transform-modules-commonjs"]
+    },
+    "npm": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": 10
+            }
+          }
+        ]
+      ]
+    },
+    "browser": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "modules": false,
+            "targets": {
+              "browsers": [
+                "chrome >= 54",
+                "firefox >= 45",
+                "last 2 edge versions",
+                "last 2 safari versions"
+              ]
+            },
+            "exclude": ["transform-for-of"]
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hlsjs-upimg-wrapper DEMO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@latest/dist/plyr.css">
+  <script src="https://cdn.bootcss.com/pako/1.0.6/pako.min.js"></script>
+  <script src="https://www.lactame.com/lib/image-js/0.21.2/image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plyr@latest/dist/plyr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/hlsjs-upimg-wrapper@latest"></script>-->
+  <script src="../dist/imagemask.js"></script>
+  <script src="../dist/HlsjsUpimgWrapper.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!--<video id="video" data-url="https://p1.pstatp.com/origin/138af000001ddd92064c6" />-->
+	<video id="video" data-url="http://192.168.137.133:3395/uploads/20201207/3cd54bf042bc8ffd.png" />
+  </div>
+
+  <script>
+    const video = document.getElementById("video")
+    const player = new Plyr(video)
+    const wrapper = new HlsjsUpimgWrapper(Hls)
+    const hls = wrapper.createPlayer({}, {
+      offset: 1016
+    })
+    hls.loadSource(video.dataset.url)
+    hls.attachMedia(video)
+  </script>
+</body>
+
+<style>
+  .container {
+    margin: 60px auto;
+    max-width: 800px;
+  }
+
+  #video {
+    width: 100%;
+  }
+</style>
+
+</html>
