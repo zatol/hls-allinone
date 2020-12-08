@@ -1,11 +1,10 @@
 # hls-allinone
-free-hls-master 切片，编码，上传，发布
-hlsjs-upimg-wrapper-p 解码，播放
-imagemask 隐写
-LSB-Steganography
+* free-hls-master 切片，编码，上传，发布
+* hlsjs-upimg-wrapper-p 解码，播放
+* imagemask 隐写
+* LSB-Steganography python版隐写
 
 ![free-hls-master处理流程](http://inews.gtimg.com/newsapp_ls/0/12879752476/0)
-http://inews.gtimg.com/newsapp_ls/0/12879752476/0
 
 ## 参考资料
 
