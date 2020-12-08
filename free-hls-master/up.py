@@ -200,14 +200,14 @@ def command_generator(file):
   rate         = bit_rate(file)
   vcodec       = video_codec(file)
   max_bits     = uploader().MAX_BYTES * 8
-  segment_time = min(20, int(max_bits / (rate * 1.35)))
+  segment_time = min(10, int(max_bits / (rate * 1.35)))
 
 
   #LIMITED
   if rate > 6e6 or argv[3] == 'LIMITED':
     maxrate = max_bits / 20 / 2.5
     sub    += ' -b:v %d -maxrate %d -bufsize %d' % (min(rate, maxrate*0.9), maxrate, maxrate/1.5)
-    vcodec, segment_time = 'h264', 20
+    vcodec, segment_time = 'h264', 10
 
   #SEGMENT_TIME
   if argv[3].isnumeric():
