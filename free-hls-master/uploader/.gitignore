@@ -1,5 +1,5 @@
 *
 !.gitignore
-!ali.py
-!yuque.py
+ali.py
+yuque.py
 !local.py

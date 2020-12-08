@@ -21,12 +21,12 @@ export default (Hlsjs, upimgConfig) => {
             promise.then((image)=>{
               let mask = new ImageMask({debug: false});
               let colorMask = new ImageColorMask(image.data, mask);
-              let fileLength = colorMask.readNumber24(mask.opts.lengthSize);
+              let fileLength = colorMask.readNumberBySize(mask.opts.lengthSize);
               console.log("fileLength:"+fileLength)
               let buffer = new ArrayBuffer(fileLength);
               let imageData = new Uint8Array(buffer);
               for (var i = 0; i < fileLength; i++) {
-                var b = colorMask.readNumber8(8);
+                var b = colorMask.readNumberBySize(8);
                 imageData[i] = b;
               }
               response.data = imageData
