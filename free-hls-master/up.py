@@ -94,9 +94,12 @@ def encrypt(code):
     for file in tsfiles(code):
       # 1，获取切片大小
       filesize = os.path.getsize('../' +file)+64
-      wh=math.ceil(math.sqrt(filesize/3))
+      wh=math.ceil(math.sqrt(filesize/3))*4
+      # wh=math.ceil(math.sqrt(filesize*3))
       print('切片大小:%s，图片尺寸:%s' % (filesize,wh))
       data = open('../' + file, "rb").read()
+      data = zlib.compress(data)
+      print('压缩后切片大小:%s' % (len(data)))
 
       portion = os.path.splitext(file)
       newName = portion[0] + ".png"
@@ -117,6 +120,7 @@ def encrypt(code):
       print('隐写完成时间:%s' % (duration))
       cv2.imwrite(newName, res)
       print('隐写完成:%s' % (newName))
+
       # embed(new_img_file_name, '../' + file)
       # 4，替换
       code = code.replace(file, newName)
@@ -238,7 +242,7 @@ def upload(lines, uploadList):
 
   if(len(uploadList)>0):
     print('retry upload')
-    upload(lines, uploadList)
+    lines = upload(lines, uploadList)
   return lines
 
 def main():
@@ -297,7 +301,9 @@ def main():
 
   in_img = cv2.imread(new_img_file_name)
   steg = LSBSteg(in_img)
-  res = steg.encode_binary(lines)
+  done = base64.b64encode(lines.encode('utf-8'))
+  done = zlib.compress(done)
+  res = steg.encode_binary(done)
   cv2.imwrite('out.png', res)
 
   m3u8url = uploader().handle('out.png')

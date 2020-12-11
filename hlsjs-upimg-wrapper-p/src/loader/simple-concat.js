@@ -10,6 +10,7 @@ export default (Hlsjs, upimgConfig) => {
           callbacks.onSuccess = function (response, stats, context) {
             let data = response.data
 				    data = String.fromCharCode.apply(null, new Uint8Array(data));
+            data = atob(data)
             response.data = data
             onSuccess(response, stats, context)
           }
@@ -29,7 +30,7 @@ export default (Hlsjs, upimgConfig) => {
                 var b = colorMask.readNumberBySize(8);
                 imageData[i] = b;
               }
-              response.data = imageData
+              response.data = pako.inflate(imageData)
               onSuccess(response, stats, context)
             }, (error)=>{
               console.log(error)

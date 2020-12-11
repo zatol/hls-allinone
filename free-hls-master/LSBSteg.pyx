@@ -57,6 +57,8 @@ class LSBSteg():
             """
 
 
+
+            """
             val = self.image[self.curheight, self.curwidth, self.curchan]
 
             if int(c) == 1:
@@ -65,11 +67,16 @@ class LSBSteg():
                 val = int(val) & self.maskZERO  # AND with maskZERO
 
             self.image[self.curheight, self.curwidth, self.curchan] = val
-
+            
             """
+
+
+
             if int(c) == 1:
                 self.image[self.curheight, self.curwidth, self.curchan] = int(self.image[self.curheight, self.curwidth, self.curchan]) | self.maskONE  # OR with maskONE
-            """
+
+
+
 
 
 
