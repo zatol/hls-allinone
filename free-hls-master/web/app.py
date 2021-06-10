@@ -1,12 +1,13 @@
-import os
+import os,base64,requests
 from os import getenv as _
+from urllib.parse import urlparse
 import time, json, binascii
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 from middleware import same_version, auth_required
-from utils import readkey, writekey, listfile, readfile, writefile, validjson
+from utils import readkey, writekey, listfile, readfile, writefile, validjson,is_base64_code
 from flask import (Flask, Response, abort, request, jsonify,
-                    make_response, render_template, send_from_directory)
+                    make_response, render_template, send_from_directory, redirect)
 
 load_dotenv()
 app = Flask(__name__)
@@ -110,6 +111,38 @@ def send_file(path):
   r.headers.add('Access-Control-Allow-Origin', '*')
   return r
 
+@app.route('/r/<path:path>')
+def make_redirect(path):
+  if(is_base64_code(path)):
+    url = base64.b64decode(path)
+  else:
+    url = path
+  r = redirect(url)
+  r.headers.add('Access-Control-Allow-Origin', '*')
+  return r
+
+@app.route('/p/<path:path>')
+def make_proxy(path):
+  if len(path) == 0:
+    return abort(404)
+  if(is_base64_code(path)):
+    url = str(base64.b64decode(path), 'UTF8')
+  else:
+    url = path
+  parsed_result = urlparse(url)
+  scheme = {'http','https'}
+  if parsed_result.scheme.lower() not in scheme:
+    return abort(404)
+  netloc = parsed_result.netloc
+  proxyUrl = {'inews.gtimg.com'}
+  if len(netloc) == 0:
+    return abort(404)
+  if netloc in proxyUrl:
+    r = Response(requests.get(url).content, mimetype="image/png")
+  else:
+    r = redirect(url)
+  r.headers.add('Access-Control-Allow-Origin', '*')
+  return r
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port='3395', debug=True)

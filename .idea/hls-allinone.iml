@@ -4,6 +4,13 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="hls.js" />
+    <orderEntry type="module" module-name="M3u8Downloader-master" />
+    <orderEntry type="module" module-name="M3u8Downloader-master" />
+    <orderEntry type="module" module-name="Cloudreve" />
+    <orderEntry type="module" module-name="you-get-develop" />
+    <orderEntry type="module" module-name="loginByPython" />
+    <orderEntry type="module" module-name="getXM" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

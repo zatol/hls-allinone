@@ -1,0 +1,19 @@
+#
+# Common config
+################################################################################
+
+--index         "./README.md"
+--package       "./package.json"
+--gh-ribbon     "https://github.com/{package.repository}"
+--output        "doc"
+--render        "html"
+--broken-links  "throw"
+
+
+#
+# Paths with sources
+################################################################################
+
+lib/deflate.js
+lib/inflate.js
+index.js

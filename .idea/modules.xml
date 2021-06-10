@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Cloudreve/.idea/Cloudreve.iml" filepath="$PROJECT_DIR$/../Cloudreve/.idea/Cloudreve.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/Compressed/M3u8Downloader-master/.idea/M3u8Downloader-master.iml" filepath="$USER_HOME$/Downloads/Compressed/M3u8Downloader-master/.idea/M3u8Downloader-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../getXM9/.idea/getXM.iml" filepath="$PROJECT_DIR$/../getXM9/.idea/getXM.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hls-allinone.iml" filepath="$PROJECT_DIR$/.idea/hls-allinone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../hls.js/.idea/hls.js.iml" filepath="$PROJECT_DIR$/../hls.js/.idea/hls.js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../loginByPython/.idea/loginByPython.iml" filepath="$PROJECT_DIR$/../loginByPython/.idea/loginByPython.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/Compressed/you-get-develop/.idea/you-get-develop.iml" filepath="$USER_HOME$/Downloads/Compressed/you-get-develop/.idea/you-get-develop.iml" />
     </modules>
   </component>
 </project>

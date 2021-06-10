@@ -19,4 +19,7 @@ class Uploader:
     if not r:
       return None
 
-    return '%s/%s' % (_('APIURL'), r)
+    if len(_('DOMAIN')) > 0:
+      return '%s/%s' % (_('DOMAIN'), r)
+    else:
+      return '%s/%s' % (_('APIURL'), r)

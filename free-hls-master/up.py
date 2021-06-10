@@ -236,8 +236,11 @@ def upload(lines, uploadList):
       print('[%s/%s] Uploaded failed: %s' % (completions, len(futures), futures[future]))
       uploadList.append(futures[future])
       continue
-
-    lines = lines.replace(futures[future], result)
+    if _('PROXY') == 'YES':
+      result = str(base64.b64encode(result.encode('utf-8')), 'utf8')
+      lines = lines.replace(futures[future], _('APIURL')+'/p/'+result)
+    else:
+      lines = lines.replace(futures[future], result)
     print('[%s/%s] Uploaded %s to %s' % (completions, len(futures), futures[future], result))
 
   if(len(uploadList)>0):
@@ -307,7 +310,11 @@ def main():
   cv2.imwrite('out.png', res)
 
   m3u8url = uploader().handle('out.png')
-  print('This video\'s m3u8 has been published to: %s' % m3u8url)
+  if _('PROXY') == 'YES':
+    m3u8url = str(base64.b64encode(m3u8url.encode('utf-8')), 'utf8')
+    print('This video\'s m3u8 has been published to: %s/p/%s' % (_('APIURL'),m3u8url))
+  else:
+    print('This video\'s m3u8 has been published to: %s/p/%s' % (_('APIURL'),m3u8url))
   publish(lines, title)
 
   # if not failures:

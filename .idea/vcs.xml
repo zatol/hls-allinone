@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../Cloudreve" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../getXM9" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/LSB-Steganography" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/free-hls-master" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hlsjs-upimg-wrapper-p" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/image-js" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/imagemask" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../hls.js" vcs="Git" />
   </component>
 </project>
