@@ -9,7 +9,7 @@
 
 ## demo
 
-[演示](http://42.192.84.231:3395/assets/demo/example/plyr.html)
+[演示](http://demo.dudouwang.com/assets/demo/example/plyr.html)
 
 
 ## 参考资料
